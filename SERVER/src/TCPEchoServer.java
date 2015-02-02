@@ -1,6 +1,5 @@
 import java.net.*;  // for Socket, ServerSocket, and InetAddress
 import java.io.*;   // for IOException and Input/OutputStream
-
 public class TCPEchoServer {
 
   private static final int BUFSIZE = 32;   // Size of receive buffer
@@ -10,7 +9,7 @@ public class TCPEchoServer {
     if (args.length != 1)  // Test for correct # of args
       throw new IllegalArgumentException("Parameter(s): <Port>");
 
-    int servPort = Integer.parseInt(args[0]);
+    int servPort = 5500;
 
     // Create a server socket to accept client connection requests
     ServerSocket servSock = new ServerSocket(servPort);

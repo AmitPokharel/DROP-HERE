@@ -1,6 +1,6 @@
 import java.net.*;  // for Socket
-import java.io.*;   // for IOException and Input/OutputStream
-
+import java.io.*;// for IOException and Input/OutputStream
+import java.util.*;
 public class TCPEchoClient {
 
   public static void main(String[] args) throws IOException {
@@ -16,6 +16,7 @@ public class TCPEchoClient {
 
     // Create socket that is connected to server on specified port
     Socket socket = new Socket(server, servPort);
+    Also obj=new Also();
     System.out.println("Connected to server...sending echo string");
 
     InputStream in = socket.getInputStream();
@@ -34,7 +35,39 @@ public class TCPEchoClient {
     }
 
     System.out.println("Received: " + new String(byteBuffer));
+    obj.createfolder();
 
     socket.close();  // Close the socket and its streams
   }
+}
+class Also
+{
+	public void createfolder()
+	{
+		File file = new File("C:\\DROP HERE");
+		 if (!file.exists()) {
+			file.mkdir();
+			System.out.println("Directory is created!");
+			} 
+		else 
+		{
+			if(file.isDirectory()){
+				 
+				if(file.list().length>0){
+		 
+					System.out.println("Directory is not empty!");
+		 
+				}else{
+		 
+					System.out.println("Directory is empty!");
+		 
+				}
+		 
+			}else{
+		 
+				System.out.println("This is not a directory");
+		 
+			}
+		}
+	}
 }
